@@ -3,11 +3,11 @@ import React from "react"
 
 // Ici se trouve la fonction du bouton dropdown
 const GradientsSelect = (props) => {
-  const { filter, tags, setFilter } = props
-  const handleSelectChange = (e) => {
-    setFilter(e.target.value)
+  const { tags, filter, setFilter } = props
+  const OnChange = (event) => {
+    setFilter(event.target.value)
   }
-  // ci dessous "return"
+  
   return (
     <div className="input-group mb-3">
       <label className="input-group-text" htmlFor="select">
@@ -17,7 +17,7 @@ const GradientsSelect = (props) => {
         className="form-select"
         id="select"
         value={filter}
-        onChange={handleSelectChange}
+        onChange={OnChange}
       >
         <option value="all">Toutes les couleurs</option>
         {tags.map((el) => (

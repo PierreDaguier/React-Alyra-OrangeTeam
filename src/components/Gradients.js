@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { gradients, uniqueTags as allTags } from "../gradients"
+import { gradients, uniqueTags  } from "../gradients"
 import GradientsList from "./GradientsList"
 import GradientsSelect from "./GradientsSelect"
 
 const Gradients = () => {
   const [filter, setFilter] = useState("all")
-  const displayedList = gradients.filter((el) => {
+  const selectedList = gradients.filter((el) => {
     if (filter === "all") {
       return true
     }
@@ -13,8 +13,8 @@ const Gradients = () => {
   })
   return (
     <>
-      <GradientsSelect tags={allTags} filter={filter} setFilter={setFilter} />
-      <GradientsList list={displayedList} />
+      <GradientsSelect tags={uniqueTags} filter={filter} setFilter={setFilter} />
+      <GradientsList list={selectedList} />
     </>
   )
 }
